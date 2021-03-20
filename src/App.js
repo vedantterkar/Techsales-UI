@@ -1,11 +1,15 @@
 import './App.css';
-import Items from './Components/Items';
+import AppFooter from './Components/AppFooter';
+import AppHeader from './Components/AppHeader';
+import Home from './Components/MiddleSection/Home';
+/*import Login from './Components/MiddleSection/Login';*/
 
 function App() {
   return (
     <div className="App">
-    <Items />
-      
+    <AppHeader />
+      <Home />
+    <AppFooter />
     </div>
   );
 }

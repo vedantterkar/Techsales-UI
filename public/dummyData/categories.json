@@ -1,0 +1,29 @@
+{
+    "categories":[
+        {   "id": "1", 
+            "name": "PCB",
+            "hash": "random"
+        },
+        {   "id": "2", 
+            "name": "Diodes",
+            "hash": "random"
+        },
+        {   "id": "3", 
+            "name": "Controllers",
+            "hash": "random"
+        },
+        {   "id": "4", 
+            "name": "Xbox",
+            "hash": "random"
+        },
+        {   "id": "5", 
+            "name": "Ps4",
+            "hash": "random"
+        },
+        {   "id": "6", 
+            "name": "Console",
+            "hash": "random"
+        }
+    ]
+
+}

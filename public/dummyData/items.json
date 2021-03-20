@@ -1,0 +1,71 @@
+{
+    "items":
+    {
+        "onsale":[
+            {   "id": "1", 
+                "name": "PCB",
+                "hash": "random"
+            },
+            {   "id": "2", 
+                "name": "Diodes",
+                "hash": "random"
+            },
+            {   "id": "3", 
+                "name": "Controllers",
+                "hash": "random"
+            },
+            {   "id": "4", 
+                "name": "Xbox",
+                "hash": "random"
+            },
+            {   "id": "6", 
+                "name": "Console",
+                "hash": "random"
+            }
+        ],
+        "regular":[
+            {   "id": "10", 
+                "name": "PCBxx",
+                "hash": "random"
+            },
+            {   "id": "20", 
+                "name": "Diodesxx",
+                "hash": "random"
+            },
+            {   "id": "30", 
+                "name": "Controllersxx",
+                "hash": "random"
+            },
+            {   "id": "40", 
+                "name": "Xboxxx",
+                "hash": "random"
+            },
+            {   "id": "50", 
+                "name": "Ps4xx",
+                "hash": "random"
+            },
+            {   "id": "11", 
+                "name": "PCByy",
+                "hash": "random"
+            },
+            {   "id": "21", 
+                "name": "Diodesyy",
+                "hash": "random"
+            },
+            {   "id": "31", 
+                "name": "Controllersyy",
+                "hash": "random"
+            },
+            {   "id": "41", 
+                "name": "Xboxyy",
+                "hash": "random"
+            },
+            {   "id": "51", 
+                "name": "Ps4yy",
+                "hash": "random"
+            }
+
+        ]
+    }
+
+}

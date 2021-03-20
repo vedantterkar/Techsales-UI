@@ -1,5 +1,9 @@
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,22 +16,230 @@ code {
     monospace;
 }
 
-.headerTable{
-
+.header{
+  display: flex;
   width: 100%;
+  background: #000000;
+  border-bottom: 2px solid #888888;
+  box-shadow: 2px 2px 5px rgba(0,0,0, 0.6);
+  position: fixed;
+  top:0px;
+  left:0px;
+  align-items: center;
+  padding: 0 10px;
+  height: 50px;
+  color: #eeeeee;
+  transition: all ease 2.0s;
+  overflow: hidden;
 }
 
-.headerth:hover{
+.header .logo{
+  margin-right: auto;
+  font-size: xx-large;
+  font-weight: bolder;
+  cursor:pointer;
+  padding: 5px;
+  margin: 5px;
+  border-bottom: 2px solid red;
+  margin-right: auto;
+  opacity: 0.89;
+}
 
-  background: #ddeeff;
-  color: black;
+
+
+.header .logo:hover{
+  background: radial-gradient( rgba(255,0,0,1), rgba(255,0,0,0.4));
+  opacity: 2.0;
+  color: #ffffff;
+  
+}
+.headerItems{
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.headerItems .headerItem{
+  margin: 10px;
+  padding: 10px; 
   cursor: pointer;
+  height:100%;
 }
 
-.headerth{
+.headerItems .headerItem:hover{
+  background: radial-gradient( rgb(27, 100, 236), rgba(3, 14, 160, 0.4));
+  opacity: 2.0;
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 2px solid rgb(27, 100, 236);
+}
 
-margin: 10px;
-padding: 10px;
-background: blue;
-color: white;
+.footer{
+  display: block;
+  width: 100%;
+  background: #000000;
+  border-top: 2px solid #888888;
+  box-shadow: -2px -2px -5px rgba(0,0,0, 0.6);
+  position: fixed;
+  bottom:0px;
+  right:0px;
+  padding-top: 10px;
+  height: 40px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.mainCnt{
+  background: #eeeeee;
+  padding: 50px;
+  margin: 50px;
+  text-align: left;
+  left: 20%;
+  
+}
+
+.mainCnt h1{
+  color: rgba(0, 0, 0, 0.835); 
+  font-family: 'Trocchi', serif; 
+  font-size: 45px; 
+  font-weight: bold; 
+  line-height: 48px; 
+  margin: 0;
+  border-bottom: 1px dashed #ff9933;
+}
+
+.itemsCnt{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.item_mini{
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #c0c0c0;
+  width: 15%;
+  height: 300px;
+  transition: all ease 1.0s;
+  background: #dddddd;
+}
+
+.item_mini:hover{
+  background: #8cb3da;
+  cursor: pointer;
+  border: 1px dashed #000000;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.item_mini .item_mini_photo{
+  width: 100%;
+  height: 40%;
+  border: 1px solid #000000;
+}
+
+.item_mini .item_mini_descp
+{
+  width: 100%;
+  height: 48%;
+  overflow: auto;
+  clear: both;
+}
+
+.item_mini_descp span{
+  text-align: right;
+  right: 0px;
+  float: right;
+}
+
+.addtocartBtn{
+  float: right;
+  height: 10%;
+  margin: 5px;
+  background: #0a0;
+  border: 1px solid #060;
+  color: #eeeeee;
+  font-weight: bold;
+  font-family: Papyrus;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+.addtocartBtn:hover{
+  background: #0d0;
+  border: 1px solid #0a0;
+  font-weight: bolder;
+  outline: none;
+}
+.addedtocartBtn
+{
+  float: right;
+  height: 10%;
+  margin: 5px;
+  color: #eeeeee;
+  font-weight: bold;
+  font-family: Papyrus;
+  cursor: pointer;
+  background: radial-gradient( rgb(27, 100, 236), rgba(3, 14, 160, 0.4));
+  border: 1px solid rgb(27, 100, 236);
+  box-shadow: 2px 2px 2px  rgba(0,0,0,0.7);
+  outline: none;
+  font-size: 15px;
+}
+
+.logincnt{
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.logincnt table{
+  width: 50%;
+}
+.inpt{
+  background:linear-gradient(rgba(200, 200, 200, 0.6), rgba(200, 200, 200, 1.0));
+  border: 1px solid #00000000;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  transition: all ease 1.0s;
+  outline: none;
+  font-weight: bold;
+  font-family: Papyrus;
+  font-size: 15px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.inpt:focus{
+  background: #ffffff;
+  border: 1px solid #000000;
+}
+
+.yesBtn{
+  float: right;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #0a0;
+  border: 1px solid #060;
+  color: #eeeeee;
+  font-weight: bold;
+  font-family: Papyrus;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  outline: none;
+}
+.yesBtn:hover{
+  background: #0d0;
+  border: 1px solid #0a0;
+  font-weight: bolder;
+  outline: none;
 }
