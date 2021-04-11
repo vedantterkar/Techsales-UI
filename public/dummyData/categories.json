@@ -2,27 +2,33 @@
     "categories":[
         {   "id": "1", 
             "name": "PCB",
-            "hash": "random"
+            "total": "100",
+            "descp": " My PCB is My PCB none of your PCB"
         },
         {   "id": "2", 
             "name": "Diodes",
-            "hash": "random"
+            "total": "200",
+            "descp": " My Diode is My Diode none of your Diode"
         },
         {   "id": "3", 
             "name": "Controllers",
-            "hash": "random"
+            "total": "300",
+            "descp": " My Remote is My Remote none of your Remote"
         },
         {   "id": "4", 
             "name": "Xbox",
-            "hash": "random"
+            "total": "400",
+            "descp": " My Xbox is My Xbox none of your Xbox"
         },
         {   "id": "5", 
             "name": "Ps4",
-            "hash": "random"
+            "total": "500",
+            "descp": " My PS is My PS none of your PS"
         },
         {   "id": "6", 
             "name": "Console",
-            "hash": "random"
+            "total": "600",
+            "descp": " My Console is My PCB none of your PCB"
         }
     ]
 

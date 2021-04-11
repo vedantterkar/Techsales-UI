@@ -1,3 +1,5 @@
+import { navigate, A } from "hookrouter";
+
 function Login(){
 
     return(
@@ -8,7 +10,7 @@ function Login(){
                     <tr>
                     <th align='right'>Email:</th>
                             <td>
-                                <input type="text" name="email" placeholder="Email" className="inpt" autoComplete="none" />
+                                <input type="text" name="email" placeholder="Email" className="inpt" autoComplete="off" />
                             </td>
                     </tr>
                     <tr>
@@ -18,8 +20,14 @@ function Login(){
                             </td>
                     </tr>
                     <tr>
-                        <th></th>
-                        <td><input type='submit' text='Login' value='Login >' class='yesBtn' /></td>
+                        <th>
+                            <br />
+                            <input type='button' text='Signup' value='SignUp' class='yesBtn' onClick={() => navigate("/signup")} />
+                        </th>
+                        <td>
+                            <A href="/forgotpassword" style={{float: 'right'}}> Forgot Password? </A> <br />
+                            <input type='submit' text='Login' value='Login >' class='yesBtn' />
+                        </td>
                     </tr>
                 </table>
             </div>

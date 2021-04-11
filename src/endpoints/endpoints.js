@@ -1,7 +1,8 @@
 const endpoints = {
 
     "categories": "/dummyData/categories.json",
-    "items": "/dummyData/items.json"
+    "items": "/dummyData/items.json",
+    "cart": "/dummyData/cartItems.json"
 
 };
 

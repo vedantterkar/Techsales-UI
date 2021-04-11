@@ -1,25 +1,16 @@
-
-
+import { A } from 'hookrouter';
 function AppHeader() {
    
-
-    let someHandler = (hash) =>  {
-        alert(hash);
-    }
-
+   let login = "Login";
+   
     return(
     <div className="header">
-        <div className='logo' onClick={function(){ window.location.href='/home';} }>{"{TechSales}.dev"}</div>
+        <A href="/" className='logo'>{"{TechSales}.dev"}</A>
         <div className='headerItems'>
-            {   [
-                    {id: 1, name: "Categories", hash: "awdouwuowad"}, 
-                    {id: 2, name: "Account/Login", hash: "awdonowa"}, 
-                    {id: 3, name: "Cart", hash: "aodwoinaw"}, 
-                    {id: 4, name: "Support", hash: "oegiseoeinf"}
-                ].map(element => { 
-                return <div key={element.id} className="headerItem" onClick={function () { return someHandler(element.hash )}}>{element.name}</div>
-            })}
-            
+            <A href="/categories" className="headerItem">Categories</A>
+            <A href="/login" className="headerItem">Account/{login}</A>
+            <A href="/cart" className="headerItem">Cart</A>
+            <A href="/support" className="headerItem">Support</A>
         </div>
     </div>
     );

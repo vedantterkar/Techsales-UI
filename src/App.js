@@ -1,16 +1,24 @@
 import './App.css';
+
+import Routes from "./Routes/Routes";
+import { useRoutes } from 'hookrouter';
+import  Error404  from './Components/ErrorPages/Error404';
 import AppFooter from './Components/AppFooter';
 import AppHeader from './Components/AppHeader';
-import Home from './Components/MiddleSection/Home';
-/*import Login from './Components/MiddleSection/Login';*/
+
 
 function App() {
-  return (
-    <div className="App">
+
+  const routeResult = useRoutes(Routes);
+
+  return( 
+  <div className="App">
     <AppHeader />
-      <Home />
+      <div>
+        { routeResult || <Error404 /> }
+      </div>
     <AppFooter />
-    </div>
+  </div>
   );
 }
 
