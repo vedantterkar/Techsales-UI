@@ -1,12 +1,14 @@
 import Home from './Home';
-
+import { SessionProvider } from './Contexts';
 
 function HomePage(){
 
     return (
-            <div>
-              <Home />
-            </div>
+      <SessionProvider>
+        <div>
+          <Home />
+        </div>
+      </SessionProvider>
     );
 }
 

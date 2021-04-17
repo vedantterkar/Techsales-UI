@@ -3,36 +3,74 @@ import endpoints from '../endpoints/endpoints.js';
 import Category from './Category.js';
 
 
+const renderCategories = (categories) => {
+  let arr = [
+    {"id":"1","name":"PCB","total":categories.pcb.length.toString(),"descp":" My PCB is My PCB none of your PCB"},
+    {"id":"2","name":"Wires","total":categories.wires.length.toString(),"descp":" My PCB is My PCB none of your PCB"},
+    {"id":"3","name":"Diodes","total":categories.diodes.length.toString(),"descp":" My PCB is My PCB none of your PCB"},
+    {"id":"4","name":"Caps","total":categories.caps.length.toString(),"descp":" My PCB is My PCB none of your PCB"}
+  ]
+    
+  return (
+    arr.map(category => <Category key={category.id} cid={category.id} name={category.name} total={category.total} descp={category.descp} />)
+  );
+}
+
 class Categories extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         error: null,
         isLoaded: false,
-        categories: []
+        categories: {}
       };
     }
   
     componentDidMount() {
-      fetch(endpoints.categories)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              categories: result.categories
-            });
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
+      const fetchAllCategories = async () => {
+        let pcb = await fetch("https://api.techsales.dev/pcb").then(res => res.json())
+        let wires = await fetch("https://api.techsales.dev/wires").then(res => res.json())
+        let diodes = await fetch("https://api.techsales.dev/diodes").then(res => res.json())
+        let caps = await fetch("https://api.techsales.dev/caps").then(res => res.json())
+        let allCategories = { pcb: pcb, wires: wires, diodes: diodes, caps: caps}
+        console.log(allCategories)
+        return allCategories
+      }
+
+      fetchAllCategories()
+        .then(data => {
+          this.setState({
+            isLoaded: true,
+            categories: data
+          })
+        }, err => {
+          this.setState({
+            isLoaded: true,
+            err
+          })
+        })
+
+
+      // fetch(endpoints.categories)
+      //   .then(res => res.json())
+      //   .then(
+      //     (result) => {
+      //       this.setState({
+      //         isLoaded: true,
+      //         categories: result.categories
+      //       });
+      //     },
+      //     // Note: it's important to handle errors here
+      //     // instead of a catch() block so that we don't swallow
+      //     // exceptions from actual bugs in components.
+      //     (error) => {
+      //       this.setState({
+      //         isLoaded: true,
+      //         error
+      //       });
+      //     }
+      //   )
+
     }
   
     render() {
@@ -47,9 +85,11 @@ class Categories extends React.Component {
             <div className='mainCnt'>
                 <h1>Categories</h1> <br /><br />
                 <div className='categoriesCnt'>
-                    {categories.map( category => (
-                        <Category key={category.id} cid={category.id} name={category.name} total={category.total} descp={descp} />
-                    ))}
+                    {
+                      (Object.keys(categories).length != 0)? renderCategories(categories)
+                      :
+                      ""
+                    }
                 </div>
              </div>
         );
