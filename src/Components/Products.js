@@ -15,13 +15,15 @@ class Products extends React.Component {
     }
   
     componentDidMount() {
-      fetch(endpoints.items)
+      let baseUrl = endpoints.baseUrl;
+    
+      fetch(baseUrl+"/"+this.props.id)
         .then(res => res.json())
         .then(
           (result) => {
             this.setState({
               isLoaded: true,
-              items: result.items
+              items: result
             });
           },
           // Note: it's important to handle errors here
@@ -44,13 +46,12 @@ class Products extends React.Component {
         return <div className='mainCnt'>Loading...</div>;
       } else {
             
-            let descp = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
         return (
             <div className='mainCnt'>
                 <h1>Products From Category: {props.id}</h1>
                 <div className='itemsCnt'>
-                {items.regular.map(item => (
-                    <Item  key={item.id} name={item.name} descp={descp} price={(Math.random() * 10 + 1).toFixed(2)} />
+                {items.map(item => (
+                    <Item key={item.productId} productId={item.productId} name={item.name} image={item.image} descp={item.description} price={(parseFloat(item.cost)).toFixed(2)} />
                 ))}
                 </div>
              </div>

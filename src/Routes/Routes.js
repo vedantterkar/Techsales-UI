@@ -10,6 +10,7 @@ import SignUp from "../Components/SignUp";
 import ForgotPass from "../Components/ForgotPass";
 import CheckOut from "../Components/CheckOut";
 import Error500 from "../Components/ErrorPages/Error500";
+import ChooseLogout from "../Components/ChooseLogoutAction";
 
 const Routes = {
   "/": () => <HomePage />,
@@ -17,13 +18,15 @@ const Routes = {
   "/categories": () => <Categories />,
   "/cart": () => <Cart />,
   "/login": () => <Login />,
+  "/login/:errId": ({errId}) => <Login errorId={errId} />,
   "/logout": () => <Logout />,
   "/support": () => <Contact />,
   "/products/:id": ({id}) => <Products id={id} />,
   "/signup": () => <SignUp />,
   "/forgotpassword": () => <ForgotPass />,
   "/checkout": () => <CheckOut />,
-  "/error": () => <Error500 />
+  "/error": () => <Error500 />,
+  "/chooseLogout": () =>  <ChooseLogout />
 };
 
 export default Routes;

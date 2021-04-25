@@ -9,34 +9,40 @@ class Categories extends React.Component {
       this.state = {
         error: null,
         isLoaded: false,
-        categories: []
+        categories: {}
       };
     }
   
     componentDidMount() {
-      fetch(endpoints.categories)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              categories: result.categories
-            });
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
+      const fetchAllCategories = async () => {
+        let baseUrl = endpoints.baseUrl;
+        let pcb = await fetch(baseUrl+endpoints.pcb).then(res => res.json())
+        let wires = await fetch(baseUrl+endpoints.wires).then(res => res.json())
+        let diodes = await fetch(baseUrl+endpoints.diodes).then(res => res.json())
+        let caps = await fetch(baseUrl+endpoints.caps).then(res => res.json())
+        let allCategories = { pcb: pcb, wires: wires, diodes: diodes, caps: caps}
+        return allCategories
+      }
+
+      fetchAllCategories()
+        .then(data => {
+          this.setState({
+            isLoaded: true,
+            categories: data
+          })
+        }, err => {
+          this.setState({
+            isLoaded: true,
+            err
+          })
+        })
+
+
+      
+
     }
   
     render() {
-      let descp = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
       const { error, isLoaded, categories } = this.state;
       if (error) {
         return <div className='mainCnt'><h1>Error:</h1>< br /> {error.message}</div>;
@@ -47,9 +53,12 @@ class Categories extends React.Component {
             <div className='mainCnt'>
                 <h1>Categories</h1> <br /><br />
                 <div className='categoriesCnt'>
-                    {categories.map( category => (
-                        <Category key={category.id} cid={category.id} name={category.name} total={category.total} descp={descp} />
-                    ))}
+                     { Object.keys(categories).map((element) => {
+                        let cat = categories[element];
+                        return (cat.length > 0 ? <Category key={cat[0].productId} cid={element} name={element} total={cat.length} image={cat[0].image} descp={cat[0].description} /> : "") ;
+                      })
+                      }
+                    
                 </div>
              </div>
         );
