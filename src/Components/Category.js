@@ -21,7 +21,7 @@ class Category extends React.Component
     render(){
         let props = this.state.props;
         let expanded = this.state.expanded;
-        let src = "https://cataas.com/cat/says/"+props.name;
+        let src = ""+props.image;
         let url = "/products/"+props.cid;
         return(
             <div className='category'>

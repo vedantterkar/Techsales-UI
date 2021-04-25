@@ -290,6 +290,14 @@ code {
   outline: none;
 }
 
+.noBtnCart:disabled,
+.noBtnCart[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 .delBtn{
   margin: 5px;
   padding: 5px;
@@ -462,4 +470,40 @@ code {
 
 .mainCnt a:visited{
   color: blue;
+}
+
+.warnMsg{
+
+  width:100%;
+  padding:10px;
+  margin:10px;
+  background:lemonchiffon;
+  text-align: center;
+  border: 1px solid #ffff00;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  color: #444444;
+
+}
+
+.errMsg{
+    width:100%;
+    padding:10px;
+    margin:10px;
+    background: pink;
+    text-align: center;
+    border: 1px solid #ff0000;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    color: #444444;
+  
+}
+.successMsg{
+  width:100%;
+  padding:10px;
+  margin:10px;
+  background: #aaffaa;
+  text-align: center;
+  border: 1px solid #00ff00;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  color: #444444;
+
 }

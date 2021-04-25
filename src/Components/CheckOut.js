@@ -1,7 +1,21 @@
 import { navigate } from "hookrouter";
+import { useContext } from 'react';
+import SessionContext from "./Contexts";
+
+
 
 
 function CheckOut(){
+
+    const { headers } = useContext(SessionContext);
+    
+    if(!(headers && headers["wwwAuthentication"] === "token"))
+     {
+        navigate("/login/1");
+        return
+     }
+ 
+
 
     return(
         <div className="mainCnt">
